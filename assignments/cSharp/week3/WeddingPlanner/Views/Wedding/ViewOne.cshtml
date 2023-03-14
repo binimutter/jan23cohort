@@ -1,0 +1,25 @@
+@model Wedding
+
+<h1>@Model.WedderOne & @Model.WedderTwo's wedding</h1>
+
+<h2>@Html.Label(string.Format("{0:dddd, MMMM d, yyyy}", @Model.Date))</h2>
+
+<h2>@Model.Address</h2>
+
+<h2>Guests:</h2>
+
+@foreach (UserWeddingSignup uws in Model.Guests)
+{
+    <h4>@uws.User.FullName()</h4>
+}
+
+@{bool isCreator = Model.Creator.UserId == Context.Session.GetInt32("UUID");}
+
+@if (isCreator)
+{
+    <a
+    asp-controller="Wedding"
+    asp-action="Edit"
+    asp-route-id="@Model.WeddingId"
+    >Edit Wedding</a>
+}

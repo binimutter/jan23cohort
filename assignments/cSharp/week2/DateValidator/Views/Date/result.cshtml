@@ -1,0 +1,9 @@
+@{
+    ViewData["Title"] = "Submitted Date";
+}
+@model Form;
+<div class="text-center">
+    <h1 class="display-4">Submitted Info</h1>
+    <h3>Date: @Html.Label(string.Format("{0:dddd, MMMM d, yyyy}", @Model.Date))</h3>
+    <button type="submit"><a href="/">Go Back</a></button>
+</div>

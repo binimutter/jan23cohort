@@ -1,0 +1,37 @@
+@model Vacation
+
+<h1>Vacation to: @Model.Destination, posted by @Model.Creator.Name</h1>
+
+<h3>@Model.Description</h3>
+
+<h4>Seasons to vist during:</h4>
+@if (Model.Summer)
+{
+    <span>Summer</span>
+}
+@if (Model.Winter)
+{
+    <span>Winter</span>
+}
+@if (Model.Spring)
+{
+    <span>Spring</span>
+}
+@if (Model.Fall)
+{
+    <span>Fall</span>
+}
+
+@foreach (UserVacationSignup uvs in Model.Vacationers)
+{
+    <p>@uvs.User.Name</p>
+}
+
+<form 
+asp-controller="Vacation"
+asp-action="DeleteVacation"
+asp-route-id="@Model.VacationId"
+>
+
+<button>Delete</button>
+</form>

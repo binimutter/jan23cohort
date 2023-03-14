@@ -1,0 +1,66 @@
+@model List<Vacation>
+<h1>All Vacations</h1>
+
+<a asp-controller="Vacation" asp-action="New">Create a Vacation</a>
+
+@foreach (Vacation vacation in Model)
+{
+    <div class="card shadow rounded mx-auto w-75 mb-3">
+        <h4 class="card-title text-center bg-dark text-light py-2 rounded-top">
+            @vacation.Destination - Posted by @vacation.Creator.Name
+        </h4>
+
+        <div class="card-body">
+            <p class="card-text">@vacation.Description</p>
+            <p class="card-text">Seasons we want to visit in:</p>
+            @if (vacation.Summer)
+            {
+                <span>Summer</span>
+            }
+            @if (vacation.Winter)
+            {
+                <span>Winter</span>
+            }
+            @if (vacation.Spring)
+            {
+                <span>Spring</span>
+            }
+            @if (vacation.Fall)
+            {
+                <span>Fall</span>
+            }
+            <br>
+            <small class="text-muted"> Submitted on: @vacation.CreatedAt </small>
+            <a
+            asp-controller="Vacation"
+            asp-action="ViewOne"
+            asp-route-id="@vacation.VacationId"
+            >View this Vacation</a>
+            <a
+            asp-controller="Vacation"
+            asp-action="Edit"
+            asp-route-id="@vacation.VacationId"
+            >Edit this Vacation</a>
+
+            @{ bool alreadySignedup = vacation.Vacationers.Any(vacationer => vacationer.UserId == Context.Session.GetInt32("UUID")); }
+            <form
+            asp-controller="Vacation"
+            asp-action="Signup"
+            asp-route-id="@vacation.VacationId"
+            >
+            <button>
+                @if (alreadySignedup)
+                {
+                    <span>Remove Signup</span>
+                }
+                else
+                {
+                    <span>Signup</span>
+                }
+            </button>
+            </form>
+        </div>
+
+    </div>
+
+}

@@ -1,0 +1,153 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.container {
+    background-color: white;
+	margin: auto;
+	font-family: "Montserrat", sans-serif;
+	width: 970px;
+}
+.header {
+	font-family: "Fredoka One", cursive;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    padding: 15px;
+}
+.main-content {
+	background-image: linear-gradient(#28171d, #6f5964, #28171d);
+	padding: 20px;
+}
+#main-content p {
+	margin-bottom: 15px;
+	padding-left: 10px;
+}
+#main-content a {
+	padding-left: 10px;
+}
+.name {
+	padding-left: 20px;
+}
+.desc {
+	padding-right: 20px;
+}
+.about-container {
+	display: flex;
+	justify-content: space-between;
+    margin-bottom: 20px;
+}
+.about-card-info {
+	background-image: linear-gradient(to bottom right, #fefefe, #daccd9);
+	padding: 10px 20px;
+}
+.about-card-info p {
+    margin-bottom: 15px;
+}
+.me-img {
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+	width: 410px;
+	border: 5px solid #c0c0c0;
+	min-height: fit-content;
+	vertical-align: middle;
+}
+.about {
+	display: flex;
+	flex-direction: column;
+	width: 490px;
+}
+.title {
+	color: white;
+	background-image: linear-gradient(#b1b1b5, #898794, #b1b1b5);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+	padding: 10px 20px;
+	font-weight: bold;
+}
+.subtitle {
+	color: white;
+	background-image: linear-gradient(#b1b1b5, #898794, #b1b1b5);
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+	padding: 5px 10px;
+	font-size: larger;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+.card-info {
+	padding: 10px 20px;
+	margin-bottom: 0;
+	margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 286px;
+}
+p {
+	margin-top: 0;
+}
+a {
+	color: black;
+	font-weight: bolder;
+}
+.cards-container {
+	display: flex;
+    justify-content: space-between;
+}
+.card {
+	width: 295px;
+	height: 800px;
+	background: linear-gradient(to bottom right, #fefefe, #dbcbda);
+	margin: 0 15px;
+}
+.card-img {
+	width: 100%;
+	display: block;
+}
+.icons-container {
+	display: flex;
+	align-content: flex-start;
+	flex-wrap: wrap;
+    height: 180px;
+}
+.icon {
+	width: 50px;
+	margin: 5px 5px;
+}
+.footer {
+	background-color: white;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    text-align: center;
+	padding: 10px;
+}
+.socials {
+	display: flex;
+	width: 362px;
+	padding: 10px;
+	margin: auto;
+}
+.footer img {
+	width: 20px;
+    margin: auto;
+}
+button {
+	background: green;
+	border-radius: 999px;
+	box-shadow: black 0 10px 20px -10px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 24px;
+	opacity: 1;
+	outline: 0 solid transparent;
+	padding: 8px 18px;
+	width: fit-content;
+	word-break: break-word;
+	border: 0;
+    margin: 10px 0;
+}

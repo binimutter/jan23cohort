@@ -1,0 +1,127 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+.wrapper {
+	width: 970px;
+	margin: auto;
+	font-family: "Poppins", sans-serif;
+	background-color: white;
+}
+.header {
+	background-color: #9fc5f8;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 50px;
+}
+.header h1 {
+	font-family: "Poppins", sans-serif;
+	font-size: 50px;
+}
+.nav {
+	display: flex;
+	align-items: center;
+}
+.nav a {
+	text-decoration: none;
+	color: white;
+	font-size: 25px;
+	padding: 0 15px;
+}
+.container {
+	padding: 10px 50px;
+}
+.cityNav {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 3px solid black;
+	padding: 10px 0;
+}
+.cityNav h2 {
+	font-size: 35px;
+}
+.temp {
+	display: flex;
+	align-items: center;
+}
+.temp label {
+	font-weight: bold;
+	padding-right: 10px;
+}
+.temp select {
+	border: 3px solid black;
+	padding: 5px 5px;
+	font-size: 15px;
+	font-family: "Poppins", sans-serif;
+}
+.col {
+	margin: 30px 0;
+	display: flex;
+	justify-content: space-between;
+	width: 870px;
+	text-align: center;
+}
+.card img {
+	border-radius: 50%;
+	width: 150px;
+	margin: 20px 0;
+}
+.card {
+	padding: 20px 0;
+	width: 200px;
+	background-color: #eeeeee;
+}
+.card h2 {
+	margin: 20px 0;
+}
+.degrees {
+	display: flex;
+	justify-content: space-evenly;
+}
+.red {
+	color: #cf2d2a;
+}
+.blue {
+	color: #2b78e3;
+}
+.cookie {
+    position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 5px solid black;
+	background-color: #eeeeee;
+	height: 150px;
+    width: 860px;
+}
+.cookie img {
+	width: 80px;
+	margin: 0 15px;
+}
+.cookieText {
+	font-weight: bold;
+}
+.cookieText h3 {
+	font-size: 25px;
+}
+.cookieText a {
+	color: #3270a6;
+	font-weight: 500;
+}
+.cookie button {
+	align-items: center;
+	background-color: #9fc5f8;
+	border-radius: 2px;
+	box-sizing: border-box;
+	color: #111;
+	cursor: pointer;
+	border: 3px solid #111;
+    font-size: 16px;
+	height: 40px;
+    text-align: center;
+    width: 200px;
+    margin: 0 15px;
+    font-weight: bold;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+}

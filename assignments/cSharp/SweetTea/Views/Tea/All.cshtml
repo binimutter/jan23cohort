@@ -1,0 +1,23 @@
+@model List<Tea>
+<div class="d-flex flex-row justify-content-evenly align-items-center mb3">
+    @foreach (Tea tea in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@tea.Image" class="card-img-top" alt="@tea.Name">
+            <div class="card-body">
+                <a
+                class="card-title fs-3"
+                asp-controller="Tea"
+                asp-action="ViewOne"
+                asp-route-id="@tea.TeaId"
+                >@tea.Name</a>
+                <p class="card-text">Company: @tea.Company</p>
+                <p class="card-text">Type: @tea.Type</p>
+                <p class="card-text">Flavor: @tea.Flavor</p>
+                <p class="card-text">Caffeine Level: @tea.CaffeineLevel</p>
+                <p class="card-text">Price: $@tea.Price</p>
+                <p class="card-text">Added By @tea.Creator.FirstName</p>
+            </div>
+        </div>
+    }
+</div>

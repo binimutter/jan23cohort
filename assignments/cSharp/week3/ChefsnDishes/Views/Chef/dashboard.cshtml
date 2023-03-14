@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Chef Dashboard";
+}
+@model List<Chef>
+<div class="text-center">
+    <h1>Check out our roster of chefs!</h1>
+    @* <nav>
+        <a href="/">Home</a>
+        <a href="/animal/dashboard">Animal Dashboard</a>
+        <a href="/animal/addAnimal">Add New Animal</a>
+    </nav> *@
+    <hr>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col"># of Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach(Chef c in Model) {
+                    int year = DateTime.Now.Year - c.DateOfBirth.Year;
+                    List<Dish> dishList = new List<Dish>(c.AllDishes);
+                    <tr>
+                        <td>@c.FirstName @c.LastName</td>
+                        <td>@year</td>
+                        <td>@dishList.Count</td>
+                    </tr>
+                    Console.WriteLine(@c.AllDishes.Count);
+                }
+            }
+        </tbody>
+    </table>
+
+
+
+</div>

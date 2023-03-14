@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Edit Dish";
+}
+@model Dish
+
+<h1>Edit a Dish!</h1>
+
+<form action="/dish/@Model.DishId/update" method="post">
+    <div class="row">
+        <section>
+            <label for="Chef">Chef's Name</label>
+            <input type="text" name="Chef" id="" value="@Model.Chef">
+            <span asp-validation-for="Chef"></span>
+        </section>
+        <section>
+            <label for="Name">Name of Dish</label>
+            <input type="text" name="Name" id="" value="@Model.Name">
+            <span asp-validation-for="Name"></span>
+        </section>
+        <section>
+            <label for="Calories"># of Calories</label>
+            <input type="int" name="Calories" id="" value="@Model.Calories">
+            <span asp-validation-for="Calories"></span>
+        </section>
+    </div>
+    <section>
+        <label asp-for="Tastiness">Tastiness</label> 
+        <select asp-for="Tastiness" name="Tastiness" id="" value="@Model.Tastiness">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span asp-validation-for="Tastiness"></span>
+    </section>
+    <section>
+            <label asp-for="Description"></label>    
+            <textarea asp-for="Description" cols="55" rows="7" name="Description" id ="" value="@Model.Description"></textarea>
+            <span asp-validation-for="Description"></span>
+        </section>
+    <button>Update Dish</button>
+</form>

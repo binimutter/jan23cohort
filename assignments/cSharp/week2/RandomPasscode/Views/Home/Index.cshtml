@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Random Passcode Generator";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Random Passcode #@Model</h1>
+    @{
+        Random rand = new Random();
+        string valid = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        char[] pwArr = new char[14];
+        for(int i = 0; i < pwArr.Length; i++){
+            pwArr[i] = valid[rand.Next(valid.Length)];
+        }
+        string pwStr = new string(pwArr);
+        <h1>@pwStr</h1>
+    }
+    @* Method 1: has to be HttpGet in controller *@
+    <button><a href="Generate">Generate</a></button>
+
+    @* Method 2: has to be HttpPost in controller *@
+    @* <form asp-action="Generate" asp-controller="Home" method="POST">
+    <button>Generate</button>
+    </form> *@
+</div>

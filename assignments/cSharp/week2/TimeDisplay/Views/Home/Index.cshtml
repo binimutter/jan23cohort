@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Fredoka+One&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Display</title>
+</head>
+<body>
+    <div class="container">
+        <h1>The current time and date: </h1>
+        <div class="time-container">
+            @* Method 1: Everything on one line *@
+            @{
+                DateTime CurrentTime = DateTime.Now;
+
+                <p>@Html.Label(string.Format("{0:f}",CurrentTime))</p>
+                @* OR *@
+                @* <p>@Html.Label(string.Format("{0:f}",System.DateTime.Now))</p> *@
+            }
+
+            @* Method 2: Separate date and time on two different lines *@
+            @* @{
+                DateTime CurrentTime = DateTime.Now;
+                <p>@Html.Label(string.Format("{0:dddd, MMMM d, yyyy}", CurrentTime))</p>
+                <p> @Html.Label(string.Format("{0:h:mm tt}", CurrentTime))</p>
+            } *@
+        </div>
+    </div>
+</body>
+</html>

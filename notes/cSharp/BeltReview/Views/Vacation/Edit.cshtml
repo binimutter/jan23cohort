@@ -1,0 +1,52 @@
+@model Vacation
+
+<div class="container w-75 mx-auto">
+    <h2 class="text-center">Edit Vacation</h2>
+
+    <form
+        class="shadow p-3 rounded"
+        asp-controller="Vacation"
+        asp-action="UpdateVacation"
+        asp-route-id="@Model.VacationId"
+        method="POST"
+    >
+        <div class="mb-3">
+            <label asp-for="Destination"></label>
+            <span asp-validation-for="Destination" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Destination" value="@Model.Destination"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <span asp-validation-for="Description" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Description" value="@Model.Description"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Summer"></label>
+            <span asp-validation-for="Summer" class="text-danger font-weight-bold">
+            </span>
+            <input asp-for="Summer" checked="@Model.Summer"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Spring"></label>
+            <span asp-validation-for="Spring" class="text-danger font-weight-bold">
+            </span>
+            <input asp-for="Spring" checked="@Model.Spring"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Winter"></label>
+            <span asp-validation-for="Winter" class="text-danger font-weight-bold">
+            </span>
+            <input asp-for="Winter" checked="@Model.Winter"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Fall"></label>
+            <span asp-validation-for="Fall" class="text-danger font-weight-bold">
+            </span>
+            <input asp-for="Fall" checked="@Model.Fall"/>
+        </div>
+
+        <button class="btn btn-sucess">Submit</button>
+    </form>
+</div>

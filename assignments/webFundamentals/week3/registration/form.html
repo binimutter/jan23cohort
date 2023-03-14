@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8">
+		<title>Registration Form</title>
+	</head>
+	<body>
+		<h1>My Registration Form</h1>
+		<form>
+			<label for="first_name">First Name</label>
+			<input type="text" id="first_name" name="first_name" />
+
+			<label for="last_name"><br />Last Name</label>
+			<input type="text" id="last_name" name="last_name" />
+
+			<label for="email"><br />Email</label>
+			<input type="text" id="email" name="email" />
+
+			<label for="password"><br />Password</label>
+			<input type="password" id="password" name="password" />
+			<label for="pw_confirm"><br />PW Confirm</label>
+			<input
+				type="password"
+				id="pw_confirm"
+				name="password_confirmation"
+			/>
+
+			<label for="birthday"><br />Birthday</label>
+			<input type="date" id="birthday" name="birthday" />
+
+            <p> </p>
+			<input type="radio" id="male" name="gender" value="male" />
+			<label for="male">Male</label>
+			<input type="radio" id="female" name="gender" value="female" />
+			<label for="female">Female</label>
+			<input type="radio" id="other" name="gender" value="other" />
+			<label for="other">Other</label>
+
+			<p>A short description about yourself</p>
+			<textarea name="description"></textarea>
+
+            <label for="languages"><br />Favorite Language</label>
+            <select name="languages" id="languages">
+                <option value="JavaScript">JavaScript</option>
+                <option value="C#">C#</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="RubyOnRails">Ruby On Rails</option>
+            </select>
+
+            <p> </p>
+			<input type="submit" value="Submit" /><br />
+		</form>
+	</body>
+</html>

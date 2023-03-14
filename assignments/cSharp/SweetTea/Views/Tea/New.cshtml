@@ -1,0 +1,73 @@
+@model Tea
+
+<div class="container w-75 mx-auto">
+    <h2 class="text-center">Add a Tea</h2>
+
+    <form
+        class="shadow p-3 rounded"
+        asp-controller="Tea"
+        asp-action="Create"
+        method="POST"
+    >
+        <div class="mb-3">
+            <label asp-for="Image"></label>
+            <span asp-validation-for="Image" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Image" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <span asp-validation-for="Name" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Name" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Company"></label>
+            <span asp-validation-for="Company" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Company" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Type"></label>
+            <span asp-validation-for="Type" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Type" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Flavor"></label>
+            <span asp-validation-for="Flavor" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Flavor" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CaffeineLevel"></label>
+            <span asp-validation-for="CaffeineLevel" class="text-danger font-weight-bold">
+            </span>
+            <select name="CaffeineLevel" id="">
+            <option value=""></option>
+            <option value="1">Caffeine-free</option>
+            <option value="2">Low Caffeine</option>
+            <option value="3">Medium Caffeine</option>
+            <option value="4">High Caffeine</option>
+            <option value="5">Coffee-level Caffeine</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price"></label>
+            <span asp-validation-for="Price" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" type="double" asp-for="Price" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Ingredients"></label>    
+            <span asp-validation-for="Ingredients" class="text-danger font-weight-bold"></span>
+            <textarea class="form-control" cols="55" rows="7" asp-for="Ingredients"></textarea>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Instructions"></label>    
+            <span asp-validation-for="Instructions" class="text-danger font-weight-bold"></span>
+            <textarea class="form-control" cols="55" rows="7" asp-for="Instructions"></textarea>
+        </div>
+        <button class="btn btn-sucess">Add</button>
+    </form>
+</div>

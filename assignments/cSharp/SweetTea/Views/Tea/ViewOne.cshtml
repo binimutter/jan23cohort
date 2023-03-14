@@ -1,0 +1,65 @@
+@model Tea
+
+<div class="d-flex flex-row justify-content-evenly align-items-center mb3">
+    <div class="d-flex flex-column mb-3">
+        <h2>@Model.Name</h2>
+        <img src="@Model.Image" class="card-img-top" alt="@Model.Name">
+    </div>
+    <div class="d-flex flex-column mb-3">
+        <p class="card-text">By @Model.Creator.FirstName @Model.Creator.LastName</p>
+        <p class="card-text">Company: @Model.Company</p>
+        <p class="card-text">Type: @Model.Type</p>
+        <p class="card-text">Flavor: @Model.Flavor</p>
+        <p class="card-text">Caffeine Level: @Model.CaffeineLevel</p>
+        <p class="card-text">Price: $@Model.Price</p>
+        <p class="card-text">Main Ingredients: @Model.Ingredients</p>
+        <p class="card-text">Brewing Instructions: @Model.Instructions</p>
+        <div class="d-flex flex-row mb3">
+            <a
+            asp-controller="Tea"
+            asp-action="Edit"
+            asp-route-id="@Model.TeaId"
+            >
+            Edit
+            </a>
+            <form
+            asp-controller="Tea"
+            asp-action="DeleteTea"
+            asp-route-id="@Model.TeaId"
+            >
+            <button class="btn btn-link">
+                <span>Delete</span>
+            </button>
+            </form>
+        </div>
+        @* @if (Model.ForSale)
+        {
+            <span>For Sale</span>
+        } else {
+            <span>Not For Sale</span>
+        }
+        <p class="card-text">@Model.Likes.Count likes</p>
+        @{bool isCreator = Model.Creator.UserId == Context.Session.GetInt32("UUID");}
+        @if (isCreator)
+        {
+        <div class="d-flex flex-row mb3">
+            <a
+            asp-controller="Art"
+            asp-action="Edit"
+            asp-route-id="@Model.ArtId"
+            >
+            Edit
+            </a>
+            <form
+            asp-controller="Art"
+            asp-action="DeleteArt"
+            asp-route-id="@Model.ArtId"
+            >
+            <button class="btn btn-link">
+                <span>Delete</span>
+            </button>
+            </form>
+        </div>
+        } *@
+    </div>
+</div>

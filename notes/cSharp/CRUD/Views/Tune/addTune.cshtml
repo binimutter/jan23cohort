@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Add New Tune";
+}
+@model Tune
+
+<h1>Add a New Tune</h1>
+
+<form action="/tune/createTune" method="post">
+    <section>
+        <label for="TuneName">Tune Name</label>
+        <input type="text" name="TuneName" id="">
+        <span asp-validation-for="TuneName"></span>
+    </section>
+    <section>
+        <label for="TuneImg">Link to Tune Image</label>
+        <input type="text" name="TuneImg" id="">
+        <span asp-validation-for="TuneImg"></span>
+    </section>
+    <section>
+        <label for="Owner">Tune Owner</label>
+        <input type="text" name="Owner" id="">
+        <span asp-validation-for="Owner"></span>
+    </section>
+    <button>Add Tune</button>
+</form>

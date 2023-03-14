@@ -1,0 +1,33 @@
+.nav {
+    background-color: #81a0ea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    margin: 20px 10px;
+}
+img {
+    width: 80px;
+}
+h1 {
+    font-size: x-large;
+    padding-right: 50px;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    padding: 20px;
+}
+li {
+    padding: 0px 50px;
+    margin: 0px 10px;
+}
+a {
+    color: white;
+    text-decoration: none;
+}

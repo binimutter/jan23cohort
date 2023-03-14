@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Date";
+}
+@model Form;
+<div class="text-center">
+    <h1 class="display-4">Dojo Survey - Date Validation</h1>
+    <form action="/result" method="post">
+        <section>
+            <label asp-for="Date"></label>    
+            <input type="date" asp-for="Date">
+            <span asp-validation-for="Date"></span>
+        </section>
+        <button type="submit">Submit</button>
+    </form>    
+</div>
