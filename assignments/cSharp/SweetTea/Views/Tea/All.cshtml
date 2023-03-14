@@ -1,22 +1,93 @@
 @model List<Tea>
-<div class="d-flex flex-row justify-content-evenly align-items-center mb3">
+
+<div class="top-container">
+    <h1 class="title">Browse All Tea</h1>
+    <p class="subtitle">Discover everyone's favorite teas from different brands around the world.</p>
+</div>
+<div class="card-container row row-cols-1 row-cols-md-4 g-4">
     @foreach (Tea tea in Model)
     {
-        <div class="card" style="width: 18rem;">
-            <img src="@tea.Image" class="card-img-top" alt="@tea.Name">
+        <div class="card h-100 all-bg" style="width: 18rem;">
+            <img src="@tea.Image" class="card-img-top w-100" style="width: 18rem;" alt="@tea.Name">
             <div class="card-body">
+                <div class="d-flex flex-row justify-content-between align-items-start mb3 sub-top-container">
+                    <p class="card-text grey-text">@tea.Company</p>
+                    <p class="card-text grey-text">@tea.Creator.FirstName</p>
+                </div>
                 <a
                 class="card-title fs-3"
                 asp-controller="Tea"
                 asp-action="ViewOne"
                 asp-route-id="@tea.TeaId"
                 >@tea.Name</a>
-                <p class="card-text">Company: @tea.Company</p>
-                <p class="card-text">Type: @tea.Type</p>
-                <p class="card-text">Flavor: @tea.Flavor</p>
-                <p class="card-text">Caffeine Level: @tea.CaffeineLevel</p>
-                <p class="card-text">Price: $@tea.Price</p>
-                <p class="card-text">Added By @tea.Creator.FirstName</p>
+                <div class="bottom-card-text-container">
+                    <div class="left-container">
+                        @{bool alreadyLiked = tea.Likes.Any(t => t.UserId == Context.Session.GetInt32("UUID"));}
+                        @{bool isCreator = tea.Creator.UserId == Context.Session.GetInt32("UUID");}
+                        @if(isCreator)
+                        {
+                            <div class="creator-icon-container mb3">
+                                <a
+                                asp-controller="Tea"
+                                asp-action="Edit"
+                                asp-route-id="@tea.TeaId"
+                                ><span><img class="icon" src="~/images/pencil.svg" alt="edit icon"></span></a>   
+                                <form
+                                asp-controller="Tea"
+                                asp-action="DeleteTea"
+                                asp-route-id="@tea.TeaId"
+                                >
+                                <button class="btn">
+                                    <span class="all-bg"><img class="delete-icon" src="~/images/delete.svg" alt="delete icon"></span>
+                                </button>
+                                </form>
+                            </div>
+                        }
+                        else {
+                            <form
+                            asp-controller="Tea"
+                            asp-action="Like"
+                            asp-route-id="@tea.TeaId"
+                            class="all-bg"
+                            >
+                            <button class="btn btn-link all-bg">
+                                @if (alreadyLiked)
+                                {
+                                    <span class="all-bg"><img class="icon" src="~/images/unlike.svg" alt="heart unlike icon"></span>
+                                }
+                                else
+                                {
+                                    <span class="all-bg"><img class="icon" src="~/images/like.svg" alt="heart like icon"></span>
+                                }
+                            </button>
+                            </form>
+                        }
+                        <p class="card-text bold">$@tea.Price</p>
+                    </div>
+                    <div class="right-container">
+                        @if (tea.CaffeineLevel == 1)
+                        {
+                            <p class="card-text">Caffeine-free </p>  
+                        }
+                        @if (tea.CaffeineLevel == 2)
+                        {
+                            <p class="card-text">Low Caffeine </p>  
+                        }
+                        @if (tea.CaffeineLevel == 3)
+                        {
+                            <p class="card-text">Medium Caffeine </p>  
+                        }
+                        @if (tea.CaffeineLevel == 4)
+                        {
+                            <p class="card-text">High Caffeine </p>  
+                        }
+                        @if (tea.CaffeineLevel == 5)
+                        {
+                            <p class="card-text">Coffee-level Caffeine </p>  
+                        }
+                        <p class="card-text">@tea.Type</p>
+                    </div>
+                </div>
             </div>
         </div>
     }

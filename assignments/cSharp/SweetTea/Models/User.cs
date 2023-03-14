@@ -41,7 +41,7 @@ public class User
     public DateTime UpdatedAt { get; set; } = DateTime.Now;
     public List<Tea> CreatedTea { get; set; } = new List<Tea>();
 
-    public List<UserTeaRating> Teas { get; set; } = new List<UserTeaRating>();
+    public List<UserTeaLike> Teas { get; set; } = new List<UserTeaLike>();
 }
 
 public class UniqueEmailAttribute : ValidationAttribute

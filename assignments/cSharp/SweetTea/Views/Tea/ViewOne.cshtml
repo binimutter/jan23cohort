@@ -10,56 +10,67 @@
         <p class="card-text">Company: @Model.Company</p>
         <p class="card-text">Type: @Model.Type</p>
         <p class="card-text">Flavor: @Model.Flavor</p>
-        <p class="card-text">Caffeine Level: @Model.CaffeineLevel</p>
+        @if (Model.CaffeineLevel == 1)
+        {
+            <p class="card-text">Caffeine-free </p>  
+        }
+        @if (Model.CaffeineLevel == 2)
+        {
+            <p class="card-text">Low Caffeine </p>  
+        }
+        @if (Model.CaffeineLevel == 3)
+        {
+            <p class="card-text">Medium Caffeine </p>  
+        }
+        @if (Model.CaffeineLevel == 4)
+        {
+            <p class="card-text">High Caffeine </p>  
+        }
+        @if (Model.CaffeineLevel == 5)
+        {
+            <p class="card-text">Coffee-level Caffeine </p>  
+        }
         <p class="card-text">Price: $@Model.Price</p>
         <p class="card-text">Main Ingredients: @Model.Ingredients</p>
         <p class="card-text">Brewing Instructions: @Model.Instructions</p>
-        <div class="d-flex flex-row mb3">
-            <a
-            asp-controller="Tea"
-            asp-action="Edit"
-            asp-route-id="@Model.TeaId"
-            >
-            Edit
-            </a>
-            <form
-            asp-controller="Tea"
-            asp-action="DeleteTea"
-            asp-route-id="@Model.TeaId"
-            >
-            <button class="btn btn-link">
-                <span>Delete</span>
-            </button>
-            </form>
-        </div>
-        @* @if (Model.ForSale)
-        {
-            <span>For Sale</span>
-        } else {
-            <span>Not For Sale</span>
-        }
-        <p class="card-text">@Model.Likes.Count likes</p>
+        @{bool alreadyLiked = Model.Likes.Any(t => t.UserId == Context.Session.GetInt32("UUID"));}
         @{bool isCreator = Model.Creator.UserId == Context.Session.GetInt32("UUID");}
-        @if (isCreator)
-        {
-        <div class="d-flex flex-row mb3">
-            <a
-            asp-controller="Art"
-            asp-action="Edit"
-            asp-route-id="@Model.ArtId"
-            >
-            Edit
-            </a>
-            <form
-            asp-controller="Art"
-            asp-action="DeleteArt"
-            asp-route-id="@Model.ArtId"
-            >
-            <button class="btn btn-link">
-                <span>Delete</span>
-            </button>
-            </form>
-        </div>
-        } *@
+            @if (isCreator)
+            {
+                <div class="d-flex flex-row justify-content-start mb3">
+                    <a
+                    asp-controller="Tea"
+                    asp-action="Edit"
+                    asp-route-id="@Model.TeaId"
+                    >Edit</a>   
+                    <form
+                    asp-controller="Tea"
+                    asp-action="DeleteTea"
+                    asp-route-id="@Model.TeaId"
+                    >
+                    <button class="btn btn-red">
+                        <span>Delete</span>
+                    </button>
+                    </form>
+                </div>
+            }
+            else {
+                <form
+                asp-controller="Tea"
+                asp-action="Like"
+                asp-route-id="@Model.TeaId"
+                >
+                <button class="btn btn-link">
+                    @if (alreadyLiked)
+                    {
+                        <span>Unlike</span>
+                    }
+                    else
+                    {
+                        <span>Like</span>
+                    }
+                </button>
+                </form>
+            }
     </div>
 </div>

@@ -44,6 +44,6 @@ public class Tea
 
     public int UserId { get; set; }
     public User? Creator { get; set; }
-    public List<UserTeaRating> Ratings { get; set; } = new List<UserTeaRating>();
+    public List<UserTeaLike> Likes { get; set; } = new List<UserTeaLike>();
 
 }

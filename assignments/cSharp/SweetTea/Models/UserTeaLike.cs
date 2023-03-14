@@ -2,10 +2,10 @@
 using System.ComponentModel.DataAnnotations;
 namespace SweetTea.Models;
 
-public class UserTeaRating
+public class UserTeaLike
 {
     [Key]
-    public int UserTeaRatingId { get; set; }
+    public int UserTeaLikeId { get; set; }
     public int UserId { get; set; }
     public User? User { get; set; }
     public int TeaId { get; set; }

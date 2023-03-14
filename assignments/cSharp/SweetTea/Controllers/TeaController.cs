@@ -18,7 +18,7 @@ public class TeaController : Controller
     [HttpGet("/teas")]
     public IActionResult All()
     {
-        List<Tea> teas = db.Teas.Include(t => t.Creator).Include(t => t.Ratings).OrderByDescending(t => t.UpdatedAt).ToList();
+        List<Tea> teas = db.Teas.Include(t => t.Creator).Include(t => t.Likes).OrderByDescending(t => t.UpdatedAt).ToList();
         return View("All", teas);
     }
 
@@ -51,7 +51,7 @@ public class TeaController : Controller
     [HttpGet("/teas/{id}")]
     public IActionResult ViewOne(int id)
     {
-        Tea? tea = db.Teas.Include(t => t.Creator).Include(t => t.Ratings).ThenInclude(rating => rating.User).FirstOrDefault(t => t.TeaId == id);
+        Tea? tea = db.Teas.Include(t => t.Creator).Include(t => t.Likes).ThenInclude(rating => rating.User).FirstOrDefault(t => t.TeaId == id);
         if (tea == null) {
             return RedirectToAction("All");
         }
@@ -111,6 +111,28 @@ public class TeaController : Controller
             db.SaveChanges();
         }
 
+        return RedirectToAction("All");
+    }
+
+    [LoginCheck]
+    [HttpPost("/teas/{id}/like")]
+    public IActionResult Like(int id)
+    {
+        UserTeaLike? existingLike = db.UserTeaLikes.FirstOrDefault(utl => utl.UserId == HttpContext.Session.GetInt32("UUID") && utl.TeaId == id);
+        
+        if (existingLike == null) {
+            UserTeaLike newLike = new UserTeaLike()
+            {
+                UserId = (int)HttpContext.Session.GetInt32("UUID"),
+                TeaId = id
+            };
+            db.UserTeaLikes.Add(newLike);
+        }
+        else
+        {
+            db.UserTeaLikes.Remove(existingLike);
+        }
+        db.SaveChanges();
         return RedirectToAction("All");
     }
 }
