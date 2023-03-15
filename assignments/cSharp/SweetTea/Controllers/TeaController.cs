@@ -135,6 +135,28 @@ public class TeaController : Controller
         db.SaveChanges();
         return RedirectToAction("All");
     }
+
+    [LoginCheck]
+    [HttpPost("/teas/{id}/like/viewOne")]
+    public IActionResult LikeOnOne(int id)
+    {
+        UserTeaLike? existingLike = db.UserTeaLikes.FirstOrDefault(utl => utl.UserId == HttpContext.Session.GetInt32("UUID") && utl.TeaId == id);
+        
+        if (existingLike == null) {
+            UserTeaLike newLike = new UserTeaLike()
+            {
+                UserId = (int)HttpContext.Session.GetInt32("UUID"),
+                TeaId = id
+            };
+            db.UserTeaLikes.Add(newLike);
+        }
+        else
+        {
+            db.UserTeaLikes.Remove(existingLike);
+        }
+        db.SaveChanges();
+        return RedirectToAction("ViewOne", new { id = id });
+    }
 }
 
 public class LoginCheckAttribute : ActionFilterAttribute

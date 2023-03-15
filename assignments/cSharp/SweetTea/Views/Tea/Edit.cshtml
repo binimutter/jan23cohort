@@ -45,7 +45,28 @@
             <span asp-validation-for="CaffeineLevel" class="text-danger font-weight-bold">
             </span>
             <select name="CaffeineLevel" id="">
-            <option selected="@Model.CaffeineLevel"></option>
+            <option value="@Model.CaffeineLevel" selected>
+                @if (Model.CaffeineLevel == 1)
+                {
+                    <p>Caffeine-free</p>  
+                }
+                @if (Model.CaffeineLevel == 2)
+                {
+                    <p>Low Caffeine</p>  
+                }
+                @if (Model.CaffeineLevel == 3)
+                {
+                    <p>Medium Caffeine</p>  
+                }
+                @if (Model.CaffeineLevel == 4)
+                {
+                    <p>High Caffeine</p>  
+                }
+                @if (Model.CaffeineLevel == 5)
+                {
+                    <p>Coffee-level Caffeine</p>  
+                }
+            </option>
             <option value="1">Caffeine-free</option>
             <option value="2">Low Caffeine</option>
             <option value="3">Medium Caffeine</option>
