@@ -1,0 +1,12 @@
+@model Chef
+
+<h1>@Model.FirstName</h1>
+<div class="d-flex flex-row justify-content-evenly align-items-center mb3">
+    @foreach (Dish dish in Model.AllDishes)
+    {
+        <p>@dish.Name</p>
+        <p>@dish.ChefName</p>
+        <p>@dish.Calories</p>
+        <p>@dish.Tastiness</p>
+    }
+</div>

@@ -10,4 +10,5 @@ public class MyContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Tea> Teas { get; set; }
     public DbSet<UserTeaLike> UserTeaLikes { get; set; }
+
 }

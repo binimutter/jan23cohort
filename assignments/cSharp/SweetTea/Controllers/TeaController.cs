@@ -137,6 +137,56 @@ public class TeaController : Controller
     }
 
     [LoginCheck]
+    [HttpPost("/teas/{id}/cart/add")]
+    public IActionResult AddToCart(int id, Tea addedTea)
+    {
+
+        Tea? dbTea = db.Teas.FirstOrDefault(t => t.TeaId == id);
+        if (dbTea == null) {
+            return RedirectToAction("All");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("FAIL.");
+        }
+
+        dbTea.AddToCart = true;
+
+        db.Teas.Update(dbTea);
+        db.SaveChanges();
+
+        return RedirectToAction("All");
+    }
+
+    [LoginCheck]
+    [HttpPost("/teas/{id}/cart/delete")]
+    public IActionResult RemoveFromCart(int id, Tea removedTea)
+    {
+
+        Tea? dbTea = db.Teas.FirstOrDefault(t => t.TeaId == id);
+        if (dbTea == null) {
+            return RedirectToAction("All");
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("FAIL.");
+        }
+
+        dbTea.AddToCart = false;
+
+        db.Teas.Update(dbTea);
+        db.SaveChanges();
+
+        return RedirectToAction("ViewCart");
+    }
+
+    [LoginCheck]
+    [HttpGet("/teas/cart")]
+    public IActionResult ViewCart()
+    {
+        List<Tea> TeasInCart = db.Teas.Where(t => t.AddToCart == true).ToList();
+        return View("Cart", TeasInCart);
+    }
+
+    [LoginCheck]
     [HttpPost("/teas/{id}/like/viewOne")]
     public IActionResult LikeOnOne(int id)
     {
@@ -156,6 +206,13 @@ public class TeaController : Controller
         }
         db.SaveChanges();
         return RedirectToAction("ViewOne", new { id = id });
+    }
+
+    [LoginCheck]
+    [HttpGet("/teas/checkout")]
+    public IActionResult Checkout()
+    {
+        return View("Checkout");
     }
 }
 

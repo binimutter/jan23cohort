@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SweetTea.styles.css" asp-append-version="true" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5711a79f92.js" crossorigin="anonymous"></script>
 </head>
 <body>
 @if (Context.Session.GetInt32("UUID") != null) {
@@ -28,10 +29,13 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Tea" asp-action="New">Add a Tea</a>
                         </li>
                     </ul>
+                        <div class="nav-item">
+                            <a class="btn btn-shopping" asp-area="" asp-controller="Tea" asp-action="ViewCart"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
                         <div class="nav-item logout">
                             <form asp-controller="User" asp-action="Logout" method="POST">
                                 <button class="btn btn-logout">
-                                    Logout
+                                    <i class="fa-solid fa-right-from-bracket"></i>
                                 </button>
                             </form>
                         </div>

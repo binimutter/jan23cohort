@@ -34,7 +34,7 @@ public class User
     [NotMapped]
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "doesn't match password.")]
-    [Display(Name = "Confirm PW")]
+    [Display(Name = "Confirm")]
     public string PasswordConfirm { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -42,6 +42,7 @@ public class User
     public List<Tea> CreatedTea { get; set; } = new List<Tea>();
 
     public List<UserTeaLike> Teas { get; set; } = new List<UserTeaLike>();
+
 }
 
 public class UniqueEmailAttribute : ValidationAttribute

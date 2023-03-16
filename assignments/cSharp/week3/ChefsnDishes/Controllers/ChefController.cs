@@ -25,6 +25,7 @@ public class ChefController : Controller
             .ToList();
         return View("Dashboard", allChefs);
     }
+
     [HttpGet("/chef/addChef")]
     public IActionResult AddChef() {
         return View("AddChef");
@@ -39,4 +40,14 @@ public class ChefController : Controller
         return View("AddChef");
     }
     
+    [HttpGet("/chef/{id}/dashboard")]
+    public IActionResult ViewOne(int id) {
+        Chef? chef = db.Chefs
+            .Include(d => d.AllDishes)
+            .FirstOrDefault(a => a.ChefId == id);
+        if (chef == null) {
+            return RedirectToAction("Dashboard");
+        }
+        return View("ViewChef", chef);
+    }
 }

@@ -14,12 +14,23 @@
                     <p class="card-text grey-text">@tea.Company</p>
                     <p class="card-text grey-text">@tea.Creator.FirstName</p>
                 </div>
-                <a
-                class="card-title fs-3"
-                asp-controller="Tea"
-                asp-action="ViewOne"
-                asp-route-id="@tea.TeaId"
-                >@tea.Name</a>
+                <div class="tea-title-container mb3">
+                    <a
+                    class="card-title fs-3"
+                    asp-controller="Tea"
+                    asp-action="ViewOne"
+                    asp-route-id="@tea.TeaId"
+                    >@tea.Name</a>
+                    <form
+                        asp-controller="Tea"
+                        asp-action="AddToCart"
+                        asp-route-id="@tea.TeaId"
+                        >
+                        <button class="btn">
+                            <span class="all-bg"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                    </form>
+                </div>
                 <div class="bottom-card-text-container">
                     <div class="left-container">
                         @{bool alreadyLiked = tea.Likes.Any(t => t.UserId == Context.Session.GetInt32("UUID"));}
@@ -62,7 +73,7 @@
                             </button>
                             </form>
                         }
-                        <p class="card-text bold">$@tea.Price</p>
+                        <p class="card-text bold">@{string formattedPrice = $"{@tea.Price:0.00}";}$@formattedPrice</p>
                     </div>
                     <div class="right-container">
                         @if (tea.CaffeineLevel == 1)

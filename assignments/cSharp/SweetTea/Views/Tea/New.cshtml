@@ -1,10 +1,10 @@
 @model Tea
 
 <div class="container w-75 mx-auto">
-    <h2 class="text-center">Add a Tea</h2>
+    <h2 class="text-center title source-font">Add a Tea</h2>
 
     <form
-        class="shadow p-3 rounded"
+        class="shadow p-3 rounded source-font"
         asp-controller="Tea"
         asp-action="Create"
         method="POST"
@@ -68,6 +68,6 @@
             <span asp-validation-for="Instructions" class="text-danger font-weight-bold"></span>
             <textarea class="form-control" cols="55" rows="7" asp-for="Instructions"></textarea>
         </div>
-        <button class="btn btn-sucess">Add</button>
+        <button class="btn btn-sucess">Post</button>
     </form>
 </div>

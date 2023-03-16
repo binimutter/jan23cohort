@@ -39,11 +39,14 @@ public class Tea
     [Display(Name = "Brewing Instructions")]
     public string Instructions {get; set;}
 
+    public bool AddToCart { get; set; } = false;
+
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
     public int UserId { get; set; }
     public User? Creator { get; set; }
     public List<UserTeaLike> Likes { get; set; } = new List<UserTeaLike>();
+
 
 }

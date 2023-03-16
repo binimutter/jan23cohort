@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SweetTea.Models;
 
@@ -10,9 +11,10 @@ using SweetTea.Models;
 namespace SweetTea.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20230316175852_AddedCart")]
+    partial class AddedCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,9 +26,6 @@ namespace SweetTea.Migrations
                     b.Property<int>("TeaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<bool>("AddToCart")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<int?>("CaffeineLevel")
                         .IsRequired()
@@ -113,6 +112,33 @@ namespace SweetTea.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("SweetTea.Models.UserCart", b =>
+                {
+                    b.Property<int>("UserCartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("TeaId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserCartId");
+
+                    b.HasIndex("TeaId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserCarts");
+                });
+
             modelBuilder.Entity("SweetTea.Models.UserTeaLike", b =>
                 {
                     b.Property<int>("UserTeaLikeId")
@@ -151,6 +177,25 @@ namespace SweetTea.Migrations
                     b.Navigation("Creator");
                 });
 
+            modelBuilder.Entity("SweetTea.Models.UserCart", b =>
+                {
+                    b.HasOne("SweetTea.Models.Tea", "Tea")
+                        .WithMany("AddedTeas")
+                        .HasForeignKey("TeaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SweetTea.Models.User", "User")
+                        .WithMany("CartTeas")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tea");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("SweetTea.Models.UserTeaLike", b =>
                 {
                     b.HasOne("SweetTea.Models.Tea", "Tea")
@@ -172,11 +217,15 @@ namespace SweetTea.Migrations
 
             modelBuilder.Entity("SweetTea.Models.Tea", b =>
                 {
+                    b.Navigation("AddedTeas");
+
                     b.Navigation("Likes");
                 });
 
             modelBuilder.Entity("SweetTea.Models.User", b =>
                 {
+                    b.Navigation("CartTeas");
+
                     b.Navigation("CreatedTea");
 
                     b.Navigation("Teas");

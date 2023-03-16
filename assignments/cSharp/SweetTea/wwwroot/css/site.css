@@ -42,7 +42,11 @@ body {
   text-decoration: none;
   color: black;
   font-size: 24px;
-  font-family: 'Bebas Neue', cursive;
+}
+
+.btn-shopping {
+  color: black;
+  font-size: 24px;
 }
 
 .btn-red {
@@ -53,14 +57,14 @@ body {
   font-weight: bold
 }
 
-.btn-red:hover {
-  font-weight: bold;
-  color: red;
-}
-
-.btn-link:hover, .nav-link:hover, .btn-logout:hover {
+.btn-logout:hover, .nav-link:hover {
   font-weight: bold;
   color: #8E7DBE;
+}
+
+.btn-shopping:hover {
+  font-weight: bold;
+  color: #99C1B9;
 }
 
 .logout {
@@ -83,6 +87,10 @@ body {
   color: grey;
 }
 
+.source-font {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .top-container {
   padding: 15px 0;
   text-align: center;
@@ -93,8 +101,27 @@ body {
   font-size: 60px;
 }
 
+.subtitle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
 .subtitle {
   font-size: 18px;
+}
+
+.subtitle-cart {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.subtitle-cart:hover {
+  text-decoration: wavy;
+  /* font-weight: bold; */
+  color: #D88C9A;
 }
 
 .card-container {
@@ -129,6 +156,20 @@ body {
   font-size: 15px;
 }
 
+.tea-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.fa-plus, .fa-trash {
+  font-size: 20px;
+}
+
+.fa-trash:hover {
+  color: rgb(255, 78, 78);
+}
+
 .card-title {
   font-family: 'Bebas Neue', cursive;
   font-size: 21px;
@@ -136,6 +177,7 @@ body {
   text-decoration: none;
   color: black;
   background-color: #F6F6F6 !important;
+  padding-top: 9px;
 }
 
 .card-title:hover {
@@ -225,4 +267,11 @@ body {
   flex-direction: row;
   justify-content: start;
   align-items: center;
+}
+
+.total {
+  float: right;
+  font-family: 'Source Sans Pro', sans-serif;
+  /* position: absolute; */
+  /* bottom: 20px; */
 }
