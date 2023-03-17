@@ -15,7 +15,14 @@ public class TeaController : Controller
     }
 
     [LoginCheck]
-    [HttpGet("/teas")]
+    [HttpGet("/teas/home")]
+    public IActionResult Home()
+    {
+        return View("Home");
+    }
+
+    [LoginCheck]
+    [HttpGet("/teas/all")]
     public IActionResult All()
     {
         List<Tea> teas = db.Teas.Include(t => t.Creator).Include(t => t.Likes).OrderByDescending(t => t.UpdatedAt).ToList();

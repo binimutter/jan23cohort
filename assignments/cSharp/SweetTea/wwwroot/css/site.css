@@ -1,5 +1,5 @@
 * {
-  background-color: #F6F6F6 !important;
+  background-color: #F6F6F6;
 }
 
 html {
@@ -57,9 +57,13 @@ body {
   font-weight: bold
 }
 
-.btn-logout:hover, .nav-link:hover {
+.btn-logout:hover {
   font-weight: bold;
   color: #8E7DBE;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }
 
 .btn-shopping:hover {
@@ -91,6 +95,14 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.home-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .top-container {
   padding: 15px 0;
   text-align: center;
@@ -116,6 +128,25 @@ body {
   font-size: 20px;
   color: black;
   text-decoration: none;
+}
+
+.home-btn {
+  height: 40px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  border: 1px solid #1F1F1F00;
+  border-radius: 20px;
+  background-color: #99C1B9;
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  color: black;
+  opacity: 0.8;
 }
 
 .subtitle-cart:hover {
@@ -272,6 +303,29 @@ body {
 .total {
   float: right;
   font-family: 'Source Sans Pro', sans-serif;
-  /* position: absolute; */
-  /* bottom: 20px; */
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: transparent !important;
+}
+
+.carousel-item, .carousel, .slide {
+  width: 600px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.home-left-container {
+  width: 600px;
+}
+
+.space {
+  margin-bottom: 25px;
 }

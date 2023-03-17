@@ -19,7 +19,7 @@ public class UserController : Controller
         // check if logged in & send user to dashboard
         if (HttpContext.Session.GetInt32("UUID") != null)
         {
-            return RedirectToAction("All", "Tea");
+            return RedirectToAction("Home", "Tea");
         }
         return View("Index");
     }
@@ -41,7 +41,7 @@ public class UserController : Controller
         HttpContext.Session.SetInt32("UUID", newUser.UserId);
         HttpContext.Session.SetString("name", newUser.FirstName);
 
-        return RedirectToAction("All", "Tea");
+        return RedirectToAction("Home", "Tea");
     }
 
     public IActionResult Login(LoginUser userSubmission)
@@ -74,7 +74,7 @@ public class UserController : Controller
         HttpContext.Session.SetInt32("UUID", userInDb.UserId);
         HttpContext.Session.SetString("name", userInDb.FirstName);
 
-        return RedirectToAction("All", "Tea");
+        return RedirectToAction("Home", "Tea");
     }
 
     [HttpPost("/logout")]
