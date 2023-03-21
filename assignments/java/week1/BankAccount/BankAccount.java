@@ -29,6 +29,7 @@ public class BankAccount {
         System.out.println("Total amount in account $" + totalAmount);
     }
 
+    // switch method would be more suitable
     public double deposit(double amount, String account) {
         // if (!account.equals("checking") || !account.equals("savings")) {
         //     System.out.println("Please enter a proper account type: checking or savings");
@@ -46,6 +47,7 @@ public class BankAccount {
         }
     }
 
+    // switch method would be more suitable
     public double withdraw(double amount, String account) {
         // if (!account.equals("checking") || !account.equals("savings")) {
         //     System.out.println("Please enter a proper account type: checking or savings");
