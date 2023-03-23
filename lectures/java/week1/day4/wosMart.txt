@@ -1,0 +1,12 @@
+WOS Mart
+
+Store
+Home & Garden = parent => name, price
+    interface = outside/not
+    class = housewares, health, garden, toys
+Produce = parent => name, price
+    interface = parishable/not
+    class = meats, dairy
+Clothing = parent => name, price
+    interface = season
+    class = mens, womans, kids
