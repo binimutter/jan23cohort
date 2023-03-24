@@ -74,10 +74,10 @@ public class AdminUser extends User implements HIPAACompliantUser, HIPAAComplian
 		// TODO Auto-generated method stub
 		int pinLength = String.valueOf(pin).length();
 		
-		if (pinLength != 6) {
-			return false;
-		} else {
+		if (pinLength >= 6) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 	
