@@ -1,6 +1,7 @@
 WOS Mart
 
 Store
+Cart => Items(name, price) => dept
 Home & Garden = parent => name, price
     interface = outside/not
     class = housewares, health, garden, toys
