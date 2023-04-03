@@ -1,4 +1,4 @@
-package com.codingdojo.com.fruityloops;
+package assignments.java.week2.FruityLoops.src.main.java.com.codingdojo.com.fruityloops;
 
 public class Item {
     // MEMBER VARIABLES

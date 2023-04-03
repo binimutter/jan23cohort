@@ -1,13 +1,13 @@
-package assignments.java.week2.FruityLoops.src.main.java.com.codingdojo.com.fruityloops;
+package com.codingdojo.com.burgertracker;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FruityLoopsApplication {
+public class BurgerTrackerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FruityLoopsApplication.class, args);
+		SpringApplication.run(BurgerTrackerApplication.class, args);
 	}
 
 }

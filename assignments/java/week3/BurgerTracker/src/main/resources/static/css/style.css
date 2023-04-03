@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+body {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.top-container {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	align-items: center;
+}
+
+h1 {
+	color: #3a86ff;
+	text-align: left;
+}
+
+table {
+	border: 3px solid black;
+}
+
+.bottom-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+form {
+	padding: 15px 15px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+.header-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+a {
+	text-decoration: none;
+}
