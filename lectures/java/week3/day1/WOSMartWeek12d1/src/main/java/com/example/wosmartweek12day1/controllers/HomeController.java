@@ -41,7 +41,7 @@ public class HomeController {
 	public String createItem(@Valid @ModelAttribute("itemForm") Item newItem, BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
-			return "addItems.jsp";
+			return "addItem.jsp";
 		} else {
 			itemServ.createItem(newItem);
 			return "redirect:/";
