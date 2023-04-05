@@ -69,17 +69,6 @@ public class HomeController {
 	}
 	
 	
-<<<<<<< HEAD
-	
-//	GetMapping - show 1 student (/student/{id}/show)
-	@GetMapping("/student/{id}/show")
-	public String showStudent(@PathVariable("id") Long id,  Model model) {
-		Student oneStudent = studentServ.getOne(id);
-		model.addAttribute("student", oneStudent);
-		
-		return "showStudent.jsp";
-	}
-=======
 //	GetMapping - show 1 student (/student/{id}/show)
 	@GetMapping("/student/{student_id}/show")
 	public String showStudent(@PathVariable("student_id") Long student_id, Model model) {
@@ -90,7 +79,6 @@ public class HomeController {
 		return "showStudent.jsp";
 	}
 	
->>>>>>> eefdeb3c81961efdd10473e7b1e7869c80ea96fb
 	
 //	GetMapping - edit student page (/student/{id}/edit)
 	@GetMapping("/student/{id}/edit")
