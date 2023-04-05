@@ -20,13 +20,14 @@
 </head>
 <body>
 	<header>
-		<h1>Add Student</h1>
+		<h1>Java Grades</h1>
 		<nav>
 			<a href="/">Home</a>
 			<a href="/addStudent">Add New Student</a>
 		</nav>
 	</header>
 	<main>
+		<h1>Add Student</h1>
 		<form:form action="/createStudent" method="post" modelAttribute="studentForm">
 			<section>
 				<label for="firstName">First Name</label>
@@ -52,3 +53,14 @@
 	</main>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
