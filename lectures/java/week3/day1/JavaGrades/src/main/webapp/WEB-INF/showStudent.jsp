@@ -24,23 +24,12 @@
 		<nav>
 			<a href="/">Home</a>
 			<a href="/addStudent">Add New Student</a>
+			<a href="student/addBio">Add Bio</a>
 		</nav>
 	</header>
 	<main>
-		<table>
-			<tr>
-				<th>Student</th>
-				<th>Bio</th>
-				<th>Actions</th>
-			</tr>
-			<c:forEach items="${allStudents}" var="s">
-				<tr>
-					<td><a href="/student/${ s.id }/show">${ s.firstName } ${ s.lastName }</a></td>
-					<td>${ s.bio.bio }</td>
-					<td><a href="/student/${ s.id }/edit">Edit</a> | <a href="/student/${ s.id }/addBio">Add Bio</a></td>
-				</tr>
-			</c:forEach>
-		</table>
+		<h2>${ student.firstName } ${ student.lastName }</h2>
+		<p>${ student.bio.bio }</p>
 	</main>
 </body>
 </html>

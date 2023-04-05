@@ -36,7 +36,6 @@ public class HomeController {
 	@GetMapping("/")
 	public String index(@ModelAttribute("student") Student student, Model model) {
 		model.addAttribute("allStudents", studentServ.getAll());
-		
 		return "index.jsp";
 	}
 //	GetMapping  -  add student page (/addStudent)
@@ -51,7 +50,7 @@ public class HomeController {
 	public String addBio(@ModelAttribute("bioForm") Bio bio, @PathVariable Long student_id, Model model) {
 		
 		Student oneStudent = studentServ.getOne(student_id);
-		model.addAttribute("student", oneStudent);
+		model.addAttribute("s", oneStudent);
 		
 		return "addBio.jsp";
 	}
@@ -61,7 +60,14 @@ public class HomeController {
 	
 	
 	
-	
+//	GetMapping - show 1 student (/student/{id}/show)
+	@GetMapping("/student/{id}/show")
+	public String showStudent(@PathVariable("id") Long id,  Model model) {
+		Student oneStudent = studentServ.getOne(id);
+		model.addAttribute("student", oneStudent);
+		
+		return "showStudent.jsp";
+	}
 	
 //	GetMapping - edit student page (/student/{id}/edit)
 	@GetMapping("/student/{id}/edit")
@@ -92,7 +98,7 @@ public class HomeController {
 //	PostMapping - createBio (/createBio)
 	@PostMapping("/student/{student_id}/createBio")
 	public String createBio(@PathVariable("student_id") Long id, @Valid @ModelAttribute("bioForm") Bio newBio, BindingResult result, Model model) {
-		
+		model.addAttribute("s", studentServ.getOne(id));
 		if(result.hasErrors()) {
 			model.addAttribute("s", studentServ.getOne(id));
 			return "addBio.jsp";

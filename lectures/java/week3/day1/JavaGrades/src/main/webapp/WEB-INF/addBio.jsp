@@ -26,21 +26,13 @@
 			<a href="/addStudent">Add New Student</a>
 		</nav>
 	</header>
-	<main>
-		<table>
-			<tr>
-				<th>Student</th>
-				<th>Bio</th>
-				<th>Actions</th>
-			</tr>
-			<c:forEach items="${allStudents}" var="s">
-				<tr>
-					<td><a href="/student/${ s.id }/show">${ s.firstName } ${ s.lastName }</a></td>
-					<td>${ s.bio.bio }</td>
-					<td><a href="/student/${ s.id }/edit">Edit</a> | <a href="/student/${ s.id }/addBio">Add Bio</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	</main>
+	<h2>Add Your Bio</h2>
+	<form:form action="/student/${ s.id }/createBio" method="post" modelAttribute="bioForm">
+		<label for="bio">Bio</label>
+		<textarea name="bio" id="" cols="30" rows="10"></textarea>
+		<form:errors path="bio" class="text-warning"/>
+		<input type="hidden" name="student" value="${ s.id }" />
+		<button>Add Bio</button>
+	</form:form>
 </body>
 </html>

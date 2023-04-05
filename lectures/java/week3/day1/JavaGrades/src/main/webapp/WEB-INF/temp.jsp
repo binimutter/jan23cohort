@@ -21,6 +21,11 @@
 <body>
 	<header>
 		<h1>Hello</h1>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/addStudent">Add New Student</a>
+			<a href="student/addBio">Add Bio</a>
+		</nav>
 	</header>
 </body>
 </html>
