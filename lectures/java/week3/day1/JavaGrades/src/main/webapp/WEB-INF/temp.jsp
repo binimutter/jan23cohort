@@ -24,7 +24,10 @@
 		<nav>
 			<a href="/">Home</a>
 			<a href="/addStudent">Add New Student</a>
+<<<<<<< HEAD
 			<a href="student/addBio">Add Bio</a>
+=======
+>>>>>>> eefdeb3c81961efdd10473e7b1e7869c80ea96fb
 		</nav>
 	</header>
 </body>

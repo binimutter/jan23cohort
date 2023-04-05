@@ -24,12 +24,22 @@
 		<nav>
 			<a href="/">Home</a>
 			<a href="/addStudent">Add New Student</a>
-			<a href="student/addBio">Add Bio</a>
 		</nav>
 	</header>
 	<main>
 		<h2>${ student.firstName } ${ student.lastName }</h2>
+		<!-- Because of the way we set up our models we just need call the student then the class then the attribute to display -->
 		<p>${ student.bio.bio }</p>
-	</main>
+		<%-- <p>${ student.grades.score }</p> --%>
+		<table>
+			<tr>
+				<th>Grades</th>
+			</tr>
+			<c:forEach var="g" items="${ student.grades }">
+				<tr>
+					<td>${ g.score }</td>
+				</tr>
+			</c:forEach>
+		</table>
 </body>
 </html>

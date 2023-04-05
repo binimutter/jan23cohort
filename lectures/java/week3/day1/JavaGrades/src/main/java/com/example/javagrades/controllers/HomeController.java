@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.example.javagrades.models.Bio;
+import com.example.javagrades.models.Grade;
 import com.example.javagrades.models.Student;
 import com.example.javagrades.services.BioServ;
 import com.example.javagrades.services.GradeServ;
@@ -31,6 +32,10 @@ public class HomeController {
 	
 	@Autowired
 	private GradeServ gradeServ;
+	
+    // ==========================
+    //        GetMapping
+    // ==========================
 	
 //	GetMapping  - landing page (/)
 	@GetMapping("/")
@@ -57,8 +62,14 @@ public class HomeController {
 	
 	
 //	GetMapping - add Grade page (/addGrade)
+	@GetMapping("/addGrade")
+	public String addGrade(@ModelAttribute("gradeForm") Grade grade, Model model) {
+		model.addAttribute("allStudents", studentServ.getAll());
+		return "addGrade.jsp";
+	}
 	
 	
+<<<<<<< HEAD
 	
 //	GetMapping - show 1 student (/student/{id}/show)
 	@GetMapping("/student/{id}/show")
@@ -68,6 +79,18 @@ public class HomeController {
 		
 		return "showStudent.jsp";
 	}
+=======
+//	GetMapping - show 1 student (/student/{id}/show)
+	@GetMapping("/student/{student_id}/show")
+	public String showStudent(@PathVariable("student_id") Long student_id, Model model) {
+//		model.addAttribute("s", studentServ.getOne(id));
+		
+		Student oneStudent = studentServ.getOne(student_id);
+		model.addAttribute("student", oneStudent);
+		return "showStudent.jsp";
+	}
+	
+>>>>>>> eefdeb3c81961efdd10473e7b1e7869c80ea96fb
 	
 //	GetMapping - edit student page (/student/{id}/edit)
 	@GetMapping("/student/{id}/edit")
@@ -83,6 +106,11 @@ public class HomeController {
 	
 //	GetMapping - edit grade page (/grade/{id}/edit)
 	
+	
+	
+    // ==========================
+    //     POST/ PUT MAPPING
+    // ==========================	
 //	PostMapping - createStudent (createStudent)
 	@PostMapping("/createStudent")
 	public String createStudent(@Valid @ModelAttribute("studentForm") Student newStudent, BindingResult result, Model model) {
@@ -109,7 +137,16 @@ public class HomeController {
 	}
 	
 //	PostMapping - createGrade (/createGrade)
-	
+	@PostMapping("/createGrade")
+	public String createGrade(@Valid @ModelAttribute("gradeForm") Grade newGrade, BindingResult result, Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("allStudents", studentServ.getAll());
+			return "addGrade.jsp";
+		} else {
+			gradeServ.createOne(newGrade);
+			return "redirect:/";
+		}
+	}
 	
 //	PutMapping - updateStudent (/student/{id}/update)
 	@PutMapping("/student/{id}/update")
@@ -123,6 +160,11 @@ public class HomeController {
 			return "redirect:/";
 		}
 	}
+	
+	
+    // ==========================
+    //      DELETE MAPPING
+    // ==========================
 	
 //	GetMapping / DeleteMapping - remove Student (/student/{id}/delete)
 }

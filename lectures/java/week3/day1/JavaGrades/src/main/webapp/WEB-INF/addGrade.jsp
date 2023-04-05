@@ -20,47 +20,31 @@
 </head>
 <body>
 	<header>
-		<h1>Java Grades</h1>
+		<h1>Hello</h1>
 		<nav>
 			<a href="/">Home</a>
 			<a href="/addStudent">Add New Student</a>
+			<a href="/addGrade">Add Grades</a>
 		</nav>
 	</header>
 	<main>
-		<h1>Add Student</h1>
-		<form:form action="/createStudent" method="post" modelAttribute="studentForm">
+		<h1>Add Grades</h1>
+		<form:form action="/createGrade" method="post" modelAttribute="gradeForm">
 			<section>
-				<label for="firstName">First Name</label>
-				<input type="text" name="firstName" />
-				<form:errors path="firstName" class="text-warning"/>
+				<label for="score">Grade</label>
+				<input type="number" name="score" />
+				<form:errors path="score" class="text-warning"/>
 			</section>
 			<section>
-				<label for="lastName">Last Name</label>
-				<input type="text" name="lastName" />
-				<form:errors path="lastName" class="text-warning"/>
+				<label for="theStudent">Student</label>
+				<select name="theStudent">
+					<c:forEach var="s" items="${ allStudents }">
+						<option value="${ s.id }">${ s.firstName } ${ s.lastName }</option>
+					</c:forEach>
+				</select>
 			</section>
-			<section>
-				<label for="age">Age</label>
-				<input type="number" name="age" />
-				<form:errors path="age" class="text-warning"/>
-			</section>
-			<section>
-				<label for="studentId">Student ID#</label>
-				<input type="number" name="studentId" />
-				<form:errors path="studentId" class="text-warning"/>						</section>
-			<button>Add Student</button>
+			<button>Add Grade</button>
 		</form:form>
 	</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
