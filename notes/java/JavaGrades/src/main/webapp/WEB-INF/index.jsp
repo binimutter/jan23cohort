@@ -36,22 +36,12 @@
 			</tr>
 			<c:forEach items="${allStudents}" var="s">
 				<tr>
-<<<<<<< HEAD
-					<td><a href="/student/${ s.id }/show">${ s.firstName } ${ s.lastName }</a></td>
-					<td>${ s.bio.bio }</td>
-					<td><a href="/student/${ s.id }/edit">Edit</a> | <a href="/student/${ s.id }/addBio">Add Bio</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-=======
 					<td>${ s.firstName } ${ s.lastName }</td>
 					<td>${ s.bio.bio }</td>
-					<td><a href="/student/${s.id}/edit">Edit</a> | <a href="/student/${s.id}/addBio">Add Bio</a> | <a href="/student/${ s.id }/show">Show Student</a> | <a href="/student/${ s.id }/addGrade">Add Grade</a></td>
+					<td><a href="/student/${s.id}/edit">Edit</a> | <a href="/student/${s.id}/addBio">Add Bio</a> | <a href="/student/${ s.id }/show">Show Student</a> | <a href="/addGrade">Add Grade</a></td>
 				</tr>
 			</c:forEach>
 		</table>
-	
->>>>>>> eefdeb3c81961efdd10473e7b1e7869c80ea96fb
 	</main>
 </body>
 </html>
