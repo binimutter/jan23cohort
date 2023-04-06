@@ -10,39 +10,34 @@
 <html>
 <head>
 <!-- for Bootstrap CSS -->
-<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" /> -->
 <!-- YOUR own local CSS -->
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <!-- For any Bootstrap that uses JS -->
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
-<title>Java Grades</title>
+<title>Stickers and Categories</title>
 </head>
 <body>
 	<header>
-		<h1>Java Grades</h1>
+		<h1>Our Stickers and Categories</h1>
 		<nav>
 			<a href="/">Home</a>
-			<a href="/addStudent">Add New Student</a>
-			<a href="/addGrade">Add Grades</a>
+			<a href="/addCategory">Add Category</a>
+			<a href="/addSticker">Add Sticker</a>
+			<a href="/chooseCat">Choose Category</a>
 		</nav>
 	</header>
 	<main>
-		<table>
-			<tr>
-				<th>Student</th>
-				<th>Bio</th>
-				<th>Actions</th>
-			</tr>
-			<c:forEach items="${allStudents}" var="s">
-				<tr>
-					<td>${ s.firstName } ${ s.lastName }</td>
-					<td>${ s.bio.bio }</td>
-					<td><a href="/student/${s.id}/edit">Edit</a> | <a href="/student/${s.id}/addBio">Add Bio</a> | <a href="/student/${ s.id }/show">Show Student</a> | <a href="/student/${ s.id }/addGrade">Add Grade</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	
+		<h1><c:out value="${ aCat.name }" /></h1>
 	</main>
+	<footer>
+		<h3>Stickers and Categories</h3>
+		<c:forEach items="${ allStickers }" var="s">
+			<c:if test="${ s.cat.id == aCat.id}">
+				<li>${ s.name }</li>
+			</c:if>
+		</c:forEach>
+	</footer>
 </body>
 </html>

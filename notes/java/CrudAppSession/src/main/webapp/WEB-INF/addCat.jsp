@@ -16,33 +16,30 @@
 <!-- For any Bootstrap that uses JS -->
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
-<title>Java Grades</title>
+<title>Stickers and Categories</title>
 </head>
 <body>
 	<header>
-		<h1>Java Grades</h1>
+		<h1>Our Stickers and Categories</h1>
 		<nav>
 			<a href="/">Home</a>
-			<a href="/addStudent">Add New Student</a>
-			<a href="/addGrade">Add Grades</a>
+			<a href="/addCategory">Add Category</a>
+			<a href="/addSticker">Add Sticker</a>
+			<a href="/chooseCat">Choose Category</a>
 		</nav>
 	</header>
 	<main>
-		<table>
-			<tr>
-				<th>Student</th>
-				<th>Bio</th>
-				<th>Actions</th>
-			</tr>
-			<c:forEach items="${allStudents}" var="s">
-				<tr>
-					<td>${ s.firstName } ${ s.lastName }</td>
-					<td>${ s.bio.bio }</td>
-					<td><a href="/student/${s.id}/edit">Edit</a> | <a href="/student/${s.id}/addBio">Add Bio</a> | <a href="/student/${ s.id }/show">Show Student</a> | <a href="/student/${ s.id }/addGrade">Add Grade</a></td>
-				</tr>
-			</c:forEach>
-		</table>
-	
+		<form:form action="/createCat" method="post" modelAttribute="catForm">
+			<section>
+				<label for="name">Category Name</label>
+				<input type="text" name="name" />
+				<form:errors path="name" class="text-warning"/>
+			</section>
+			<button>Add Category</button>
+		</form:form>
 	</main>
+	<footer>
+		<h3>Stickers and Categories</h3>
+	</footer>
 </body>
 </html>
