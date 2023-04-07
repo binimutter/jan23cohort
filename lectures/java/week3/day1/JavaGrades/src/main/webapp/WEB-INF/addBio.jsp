@@ -20,26 +20,12 @@
 </head>
 <body>
 	<header>
-<<<<<<< HEAD
-		<h1>Hello</h1>
-=======
 		<h1>Java Grades</h1>
->>>>>>> eefdeb3c81961efdd10473e7b1e7869c80ea96fb
 		<nav>
 			<a href="/">Home</a>
 			<a href="/addStudent">Add New Student</a>
 		</nav>
 	</header>
-<<<<<<< HEAD
-	<h2>Add Your Bio</h2>
-	<form:form action="/student/${ s.id }/createBio" method="post" modelAttribute="bioForm">
-		<label for="bio">Bio</label>
-		<textarea name="bio" id="" cols="30" rows="10"></textarea>
-		<form:errors path="bio" class="text-warning"/>
-		<input type="hidden" name="student" value="${ s.id }" />
-		<button>Add Bio</button>
-	</form:form>
-=======
 	<main>
 		<h2>Add your Bio</h2>
 		<form:form action="/student/${s.id}/createBio" method="post" modelAttribute="bioForm">
@@ -53,6 +39,5 @@
 			<button>Add Bio</button>
 		</form:form>
 	</main>
->>>>>>> eefdeb3c81961efdd10473e7b1e7869c80ea96fb
 </body>
 </html>
