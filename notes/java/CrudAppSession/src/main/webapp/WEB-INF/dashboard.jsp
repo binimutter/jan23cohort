@@ -35,7 +35,10 @@
 		<h3>Stickers and Categories</h3>
 		<c:forEach items="${ allStickers }" var="s">
 			<c:if test="${ s.cat.id == aCat.id}">
-				<li>${ s.name }</li>
+				<p>${ s.name }</p>
+			</c:if>
+			<c:if test="${ s.cat.id != aCat.id}">
+				<p>No Stickers</p>
 			</c:if>
 		</c:forEach>
 	</footer>
