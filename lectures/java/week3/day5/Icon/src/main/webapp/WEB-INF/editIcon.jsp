@@ -16,44 +16,37 @@
 <!-- For any Bootstrap that uses JS -->
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
-<title>Full Stack Lecture</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<header>
 		<h1>Hello</h1>
 		<nav>
 			<a href="/">Home</a>
-			<c:if test="${ user_id != null }">
-				<a href="/dashboard">Dashboard</a>
-				<a href="/addPuppy">Add Puppy</a>
-				<a href="/logout">Logout</a>
-			</c:if>
-			<c:if test="${ user_id == null }">
-				<a href="/logReg">Login</a>
-			</c:if>
+			<a href="/dash">Dashboard</a>
+			<a href="/addIcon">Add Icon</a>
+			<a href="/addCat">Add Category</a>
+			<a href="/logout">Logout</a>
 		</nav>
 	</header>
     <main>
-    <h2>Save the Puppies</h2>
-    	<form:form action="/puppy/${ thePuppy.id }/update" method="post" modelAttribute="editPuppyForm">
-    		<input type="hidden" name="_method" value="put"/>
+    	<form:form action="/icon/${ icon.id}/update" method="post" modelAttribute="${ iconForm }">
+    	<input type="hidden" name="_method" value="put"/>
     		<section>
-    			<label for="name">Name your Puppy</label>
-    			<input type="text" name="name" id="" value="${ thePuppy.name }"/>
-    			<form:errors path="name" class="text-danger" />
+    			<label for="title">Title</label>
+    			<input type="text" name="title" value="${ icon.title }" />
+    			<form:errors path="title" class="text-danger" />
     		</section>
     		<section>
-    			<label for="breed">The Puppy's Breed</label>
-    			<input type="text" name="breed" id="" value="${ thePuppy.breed }" />
-    			<form:errors path="breed" class="text-danger" />
+    			<label for="url">Link to Image</label>
+    			<input type="text" name="url" value="${ icon.url }" />
+    			<form:errors path="url" class="text-danger" />
     		</section>
     		<section>
-    			<input type="hidden" name="owner" value="${ user_id }" />
+    		<input type="hidden" name="owner" value="${ user_id }" />
     		</section>
-    		<button>Update Puppy</button>
+    		<button>EditIcon</button>
     	</form:form>
-    	
-    	
     </main>
     <footer>
     

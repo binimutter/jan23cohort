@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+a {
+    border: 1px solid darkcyan;
+    text-decoration: none;
+    background-color: #0e3a3a;
+    padding: .5em;
+    color: #fefcfc;
+    border-radius: 20%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgrey;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        background-color: bisque;
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+        margin: 1em;
+        padding: 1em;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+
+                table {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: bisque;
+        
+                    td {
+        
+                        img {
+                            max-width: 200px;
+                        }
+                    }
+                }
+                table, tr, th, td {
+                    border: black 2px solid;
+                    padding: .5em;
+                }
+            }
+        }
+        form {
+            background-color: bisque;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            
+            section {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 50%;
+                padding: .2em;
+                margin: .2em;
+
+                label, input, textarea {
+                    margin: 1em;
+                }
+            }
+        }
+    }
+}
